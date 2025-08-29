@@ -1,102 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linux 入門課程</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
-
     body {
-      margin: 0;
       font-family: 'Noto Sans TC', sans-serif;
-      background: linear-gradient(to right, #2c3e50, #4ca1af);
-      color: #fff;
+      margin: 0;
+      background: linear-gradient(to right, #001f3f, #0074D9);
+      color: white;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: rgba(0,0,0,0.7);
-      padding: 2rem;
+      background-color: #0d6efd;
+      padding: 2rem 0;
       text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
     header h1 {
-      margin: 0;
+      font-weight: 800;
       font-size: 2.5rem;
     }
 
     nav {
-      background-color: #1abc9c;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      background-color: #0d6efd;
     }
 
     nav a {
       color: white;
+      margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     section {
+      margin: 3rem auto;
       padding: 2rem;
-      background-color: rgba(255,255,255,0.1);
-      margin: 2rem auto;
-      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       max-width: 960px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
 
     h2 {
-      border-bottom: 2px solid #1abc9c;
+      border-bottom: 2px solid #66ccff;
       padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    ul {
-      list-style: disc;
-      padding-left: 2rem;
+    .accordion-button {
+      background-color: #0d6efd;
+      color: white;
     }
 
-    a {
-      color: #00ffff;
+    .accordion-button:focus {
+      box-shadow: none;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
+      background-color: #012743;
+      color: #aaa;
       font-size: 0.9rem;
-      color: #ddd;
     }
 
-    .back-to-top {
+    /* 背景動畫 */
+    .animated-bg {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #1abc9c;
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      display: none;
-      font-weight: bold;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-100vh);
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="animated-bg">
+    <div class="circle" style="width: 100px; height: 100px; left: 20%; animation-delay: 0s;"></div>
+    <div class="circle" style="width: 60px; height: 60px; left: 50%; animation-delay: 3s;"></div>
+    <div class="circle" style="width: 80px; height: 80px; left: 80%; animation-delay: 6s;"></div>
+  </div>
+
   <header>
-    <h1>Linux 入門課程</h1>
+    <h1><i class="fa-solid fa-terminal"></i> Linux 入門課程</h1>
   </header>
 
-  <nav>
+  <nav class="text-center py-3">
     <a href="#env">上課環境說明</a>
     <a href="#method">授課方式</a>
     <a href="#plan">未來課程規劃</a>
@@ -104,23 +125,23 @@
   </nav>
 
   <section id="env">
-    <h2>上課環境說明</h2>
+    <h2><i class="fa-solid fa-laptop-code"></i> 上課環境說明</h2>
     <ul>
       <li>教材內容：<br>
         <a href="#">Chapter1</a>、<a href="#">Chapter2</a>、<a href="#">Chapter3</a>
       </li>
       <li>自架虛擬環境：
         <ul>
-          <li>VirtualBox 下載：<a href="https://www.virtualbox.org/" target="_blank">https://www.virtualbox.org/</a></li>
-          <li>VMware Workstation 下載：<a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion" target="_blank">VMware 下載</a></li>
-          <li>CentOS 下載：<a href="https://centos.org/download/" target="_blank">https://centos.org/download/</a></li>
+          <li>VirtualBox 下載：<a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></li>
+          <li>VMware Workstation 下載：<a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion">VMware 下載</a></li>
+          <li>CentOS 下載：<a href="https://centos.org/download/">https://centos.org/download/</a></li>
         </ul>
       </li>
     </ul>
   </section>
 
   <section id="method">
-    <h2>授課方式</h2>
+    <h2><i class="fa-solid fa-chalkboard-user"></i> 授課方式</h2>
     <ul>
       <li>遠端課程：ZOOM 視訊 + 自架虛擬環境</li>
       <li>教材使用：教師自編教材</li>
@@ -128,47 +149,58 @@
   </section>
 
   <section id="plan">
-    <h2>未來課程規劃</h2>
-    <ul>
-      <li>基礎課程：RH124 / RH134 → 取得 RHCSA 認證</li>
-      <li>進階課程：RH294 → 取得 RHCE 認證</li>
-      <li>架構師 RHCA 課程：
-        <ul>
-          <li>RH342 → 系統平台診斷與除錯技術</li>
-          <li>RH358 → Red Hat 服務自動化管理</li>
-          <li>RH436 → 高可用性集群與資源管理</li>
-          <li>RH442 → 效能調校技巧</li>
-          <li>D0180/280 → Kubernetes 與 OpenShift</li>
-          <li>D0380/0480 → 多叢集平台管理</li>
-          <li>D0316 → 虛擬化技術 (OpenShift 平台)</li>
-          <li>D0188/0288 → OpenShift 容器開發與佈署</li>
-          <li>AI267 → AI 技術於 OpenShift 平台</li>
-        </ul>
-      </li>
-    </ul>
+    <h2><i class="fa-solid fa-graduation-cap"></i> 未來課程規劃</h2>
+    <div class="accordion" id="futurePlan">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="baseTitle">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#base" aria-expanded="true">
+            基礎課程 & 進階課程
+          </button>
+        </h2>
+        <div id="base" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            RH124 / RH134 → RHCSA 認證<br>
+            RH294 → RHCE 認證 → Red Hat 工程師
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="archTitle">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#arch">
+            架構師 RHCA 課程
+          </button>
+        </h2>
+        <div id="arch" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            RH342 → 診斷與除錯技巧強化平台<br>
+            RH358 → Red Hat 伺服器管理自動化<br>
+            RH436 → 高可用性叢集平台架設<br>
+            RH442 → 系統平台效能調校<br>
+            DO180/280 → Kubernetes 與 OpenShift 平台<br>
+            DO380/480 → Kubernetes 進階管理與多叢集<br>
+            DO316 → OpenShift 平台虛擬化<br>
+            DO188/288 → OpenShift 容器開發與部署<br>
+            AI267 → AI 技術的 OpenShift 平台操作
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="extra">
-    <h2>內容補充</h2>
+    <h2><i class="fa-solid fa-book-open"></i> 內容補充</h2>
     <ul>
-      <li><a href="#">Redora / CentOS Stream / Red Hat Enterprise Linux 三者的區分</a></li>
+      <li><a href="#">Redora / CentOS Stream / Red Hat Enterprise Linux 差異說明</a></li>
     </ul>
   </section>
 
   <footer>
-    Powered by aglio – Last updated: 29 Mar 2025
+    <p>由 <a href="https://github.com/john-nobody" target="_blank" style="color: #66ccff">john-nobody</a> 製作 ｜ 最後更新：2025 年 8 月</p>
+    <p>Icons by <a href="https://fontawesome.com" target="_blank" style="color: #66ccff">FontAwesome</a></p>
   </footer>
 
-  <button class="back-to-top" onclick="scrollToTop()">⬆ Back to Top</button>
-
-  <script>
-    const btn = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
