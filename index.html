@@ -1,72 +1,174 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>Linux101 課程首頁</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux 入門課程</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      color: #fff;
     }
-    h1 {
-      color: #2c3e50;
+
+    header {
+      background-color: rgba(0,0,0,0.7);
+      padding: 2rem;
+      text-align: center;
     }
-    .lesson {
-      background: #fff;
-      padding: 20px;
-      border-left: 6px solid #3498db;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
-    a {
-      color: #2980b9;
+
+    nav {
+      background-color: #1abc9c;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: white;
       text-decoration: none;
+      font-weight: bold;
     }
-    a:hover {
+
+    nav a:hover {
       text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      background-color: rgba(255,255,255,0.1);
+      margin: 2rem auto;
+      border-radius: 12px;
+      max-width: 960px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      border-bottom: 2px solid #1abc9c;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 2rem;
+    }
+
+    a {
+      color: #00ffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1abc9c;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>Linux101 入門課程</h1>
-  <p>歡迎來到 Linux 入門教學，本課程共四堂，包含講義與影片。</p>
+  <header>
+    <h1>Linux 入門課程</h1>
+  </header>
 
-  <div class="lesson">
-    <h2>📘 第 1 課：Linux 是什麼？</h2>
+  <nav>
+    <a href="#env">上課環境說明</a>
+    <a href="#method">授課方式</a>
+    <a href="#plan">未來課程規劃</a>
+    <a href="#extra">內容補充</a>
+  </nav>
+
+  <section id="env">
+    <h2>上課環境說明</h2>
     <ul>
-      <li><a href="#">講義 PDF</a></li>
-      <li><a href="#">教學影片</a></li>
+      <li>教材內容：<br>
+        <a href="#">Chapter1</a>、<a href="#">Chapter2</a>、<a href="#">Chapter3</a>
+      </li>
+      <li>自架虛擬環境：
+        <ul>
+          <li>VirtualBox 下載：<a href="https://www.virtualbox.org/" target="_blank">https://www.virtualbox.org/</a></li>
+          <li>VMware Workstation 下載：<a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion" target="_blank">VMware 下載</a></li>
+          <li>CentOS 下載：<a href="https://centos.org/download/" target="_blank">https://centos.org/download/</a></li>
+        </ul>
+      </li>
     </ul>
-  </div>
+  </section>
 
-  <div class="lesson">
-    <h2>💻 第 2 課：基本指令操作</h2>
+  <section id="method">
+    <h2>授課方式</h2>
     <ul>
-      <li><a href="#">投影片</a></li>
-      <li><a href="#">操作影片</a></li>
+      <li>遠端課程：ZOOM 視訊 + 自架虛擬環境</li>
+      <li>教材使用：教師自編教材</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="lesson">
-    <h2>🧪 第 3 課：實作練習與範例</h2>
+  <section id="plan">
+    <h2>未來課程規劃</h2>
     <ul>
-      <li><a href="#">程式碼範例</a></li>
-      <li><a href="#">練習教學</a></li>
+      <li>基礎課程：RH124 / RH134 → 取得 RHCSA 認證</li>
+      <li>進階課程：RH294 → 取得 RHCE 認證</li>
+      <li>架構師 RHCA 課程：
+        <ul>
+          <li>RH342 → 系統平台診斷與除錯技術</li>
+          <li>RH358 → Red Hat 服務自動化管理</li>
+          <li>RH436 → 高可用性集群與資源管理</li>
+          <li>RH442 → 效能調校技巧</li>
+          <li>D0180/280 → Kubernetes 與 OpenShift</li>
+          <li>D0380/0480 → 多叢集平台管理</li>
+          <li>D0316 → 虛擬化技術 (OpenShift 平台)</li>
+          <li>D0188/0288 → OpenShift 容器開發與佈署</li>
+          <li>AI267 → AI 技術於 OpenShift 平台</li>
+        </ul>
+      </li>
     </ul>
-  </div>
+  </section>
 
-  <div class="lesson">
-    <h2>🎤 第 4 課：回顧與 QA</h2>
+  <section id="extra">
+    <h2>內容補充</h2>
     <ul>
-      <li><a href="#">課後問卷</a></li>
-      <li><a href="#">影片回顧</a></li>
+      <li><a href="#">Redora / CentOS Stream / Red Hat Enterprise Linux 三者的區分</a></li>
     </ul>
-  </div>
+  </section>
 
-  <hr>
-  <p style="font-size: small;">© 2025 Linux101 教材網站</p>
+  <footer>
+    Powered by aglio – Last updated: 29 Mar 2025
+  </footer>
+
+  <button class="back-to-top" onclick="scrollToTop()">⬆ Back to Top</button>
+
+  <script>
+    const btn = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
